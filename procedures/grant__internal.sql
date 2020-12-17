@@ -4,11 +4,12 @@ DELIMITER $$
 
 /*!50003
 CREATE
-	DEFINER = `root`@`localhost` PROCEDURE `grant__internal`()
-	MODIFIES SQL DATA
+    DEFINER = `root`@`localhost` PROCEDURE `grant__internal`()
+    MODIFIES SQL DATA
 BEGIN
-	GRANT INSERT, SELECT, UPDATE ON * TO 'internal'@'localhost';
+    GRANT Alter, Create, Delete, Execute, Insert, Select, Show Databases, Update ON *.* TO `internal`@`localhost`;
 
-	GRANT EXECUTE ON FUNCTION `uuid_v4` TO 'internal'@'localhost';
+    GRANT EXECUTE ON FUNCTION `uuid_v4` TO 'internal'@'localhost';
 END */$$
+
 DELIMITER ;
