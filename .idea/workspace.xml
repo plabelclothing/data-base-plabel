@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/dev" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="workitem0001" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jNLRfVcSXmbJDSvaFJOZVg4qWp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/procedures" />
+      <recent name="$PROJECT_DIR$/functions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/migartions" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="" />
+      <created>1603639596258</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603639596258</updated>
+      <workItem from="1603639601878" duration="2038000" />
+      <workItem from="1603641926332" duration="118000" />
+      <workItem from="1608198375314" duration="3638000" />
+    </task>
+    <task id="LOCAL-00001" summary="Inited db structure">
+      <created>1603641607291</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603641607291</updated>
+    </task>
+    <task id="LOCAL-00002" summary="changed config files">
+      <created>1603641962983</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603641962983</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added new table or first migartion">
+      <created>1608203736539</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608203736539</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers>
+      <GitHub url="https://github.com">
+        <option name="repoAuthor" value="plabelclothing" />
+      </GitHub>
+    </servers>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Inited db structure" />
+    <MESSAGE value="changed config files" />
+    <MESSAGE value="Added new table or first migartion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new table or first migartion" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="611" y="320" key="#Notifications" timestamp="1603640182668">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="611" y="320" key="#Notifications/0.0.1440.900@0.0.1440.900" timestamp="1603640182668" />
+    <state x="85" y="294" key="#SQL_Dialects" timestamp="1608203432250">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="85" y="294" key="#SQL_Dialects/0.0.1440.900@0.0.1440.900" timestamp="1608203432250" />
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608200507893">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608200507893" />
+    <state x="460" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603640570926">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="460" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1603640570926" />
+    <state x="322" y="25" key="CommitChangelistDialog2" timestamp="1608203736315">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203736315" />
+    <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1305" height="224" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608203690917" />
+    <state width="1305" height="224" key="GridCell.Tab.0.center" timestamp="1608203690916">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1305" height="224" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608203690916" />
+    <state width="1305" height="224" key="GridCell.Tab.0.left" timestamp="1608203690915">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1305" height="224" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608203690915" />
+    <state width="1305" height="224" key="GridCell.Tab.0.right" timestamp="1608203690917">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1305" height="224" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608203690917" />
+    <state width="237" height="457" key="HiddenNamespacesPopup" timestamp="1608201335544">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="237" height="457" key="HiddenNamespacesPopup/0.0.1440.900@0.0.1440.900" timestamp="1608201335544" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1608201165229">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608201165229" />
+    <state x="573" y="371" key="VCS.ChangelistChooser" timestamp="1603640517402">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="573" y="371" key="VCS.ChangelistChooser/0.0.1440.900@0.0.1440.900" timestamp="1603640517402" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1603641612151">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603641612151" />
+    <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1440.900@0.0.1440.900" timestamp="1608202885638" />
+    <state x="610" y="355" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1608202860202">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="610" y="355" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1440.900@0.0.1440.900" timestamp="1608202860202" />
+    <state x="523" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603641929879">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="523" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1603641929879" />
+    <state x="385" y="210" key="run.anything.popup" timestamp="1608200453391">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1608200453391" />
+  </component>
+</project>
