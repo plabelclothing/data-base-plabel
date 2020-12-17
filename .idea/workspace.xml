@@ -19,14 +19,21 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/dev" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:dev" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="" />
+    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/procedures/common/common__country__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/common/common__dict_currency__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/grant__common.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/001_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/001_migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__internal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__internal.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,16 +62,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/common" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/procedures" />
       <recent name="$PROJECT_DIR$/functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/migartions" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -82,7 +92,7 @@
       <updated>1603639596258</updated>
       <workItem from="1603639601878" duration="2038000" />
       <workItem from="1603641926332" duration="118000" />
-      <workItem from="1608198375314" duration="3638000" />
+      <workItem from="1608198375314" duration="10240000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -105,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608203736539</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added new table or first migartion">
+      <created>1608203741131</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608203741131</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -126,7 +143,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/dev" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
@@ -162,10 +179,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="460" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1603640570926" />
-    <state x="322" y="25" key="CommitChangelistDialog2" timestamp="1608203736315">
+    <state x="322" y="25" key="CommitChangelistDialog2" timestamp="1608203740984">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203736315" />
+    <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
