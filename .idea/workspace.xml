@@ -26,13 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/procedures/common/common__country__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/common/common__dict_currency__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/grant__common.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__get_by_uuid.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/001_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/001_migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__internal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__internal.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/002_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/002_migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -62,13 +61,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/common" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/procedures" />
       <recent name="$PROJECT_DIR$/functions" />
@@ -79,7 +81,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -93,6 +95,9 @@
       <workItem from="1603639601878" duration="2038000" />
       <workItem from="1603641926332" duration="118000" />
       <workItem from="1608198375314" duration="10240000" />
+      <workItem from="1609143664186" duration="16092000" />
+      <workItem from="1609168912075" duration="32000" />
+      <workItem from="1609238049488" duration="3460000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -122,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608203741131</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added new procedure">
+      <created>1609168927071</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609168927071</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -130,7 +142,7 @@
     </servers>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -149,18 +161,19 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inited db structure" />
     <MESSAGE value="changed config files" />
     <MESSAGE value="Added new table or first migartion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new table or first migartion" />
+    <MESSAGE value="added new procedure" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new procedure" />
   </component>
   <component name="WindowStateProjectService">
     <state x="611" y="320" key="#Notifications" timestamp="1603640182668">
@@ -179,10 +192,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="460" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1603640570926" />
-    <state x="322" y="25" key="CommitChangelistDialog2" timestamp="1608203740984">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1609168926301">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1609168926301" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -227,9 +241,17 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="523" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1603641929879" />
+    <state x="741" y="314" key="git4idea.branch.GitSmartOperationDialog" timestamp="1609251338844">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="741" y="314" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1609251338844" />
     <state x="385" y="210" key="run.anything.popup" timestamp="1608200453391">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1608200453391" />
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1609158388111">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1609158388111" />
   </component>
 </project>
