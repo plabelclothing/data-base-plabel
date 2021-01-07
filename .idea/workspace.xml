@@ -26,10 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__get_by_uuid.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/002_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/002_migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__get_by_uuid.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__get_by_uuid.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +68,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/procedures/common" />
+      <recent name="$PROJECT_DIR$/migartions" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures" />
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/procedures" />
       <recent name="$PROJECT_DIR$/functions" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/procedures/common" />
-      <recent name="$PROJECT_DIR$/migartions" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -98,6 +98,7 @@
       <workItem from="1609143664186" duration="16092000" />
       <workItem from="1609168912075" duration="32000" />
       <workItem from="1609238049488" duration="3460000" />
+      <workItem from="1610021236521" duration="133000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -134,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609168927071</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="merge">
+      <created>1609251544767</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609251544767</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -173,7 +181,8 @@
     <MESSAGE value="changed config files" />
     <MESSAGE value="Added new table or first migartion" />
     <MESSAGE value="added new procedure" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new procedure" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="611" y="320" key="#Notifications" timestamp="1603640182668">
@@ -192,11 +201,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="460" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1603640570926" />
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1609168926301">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1609251543959">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1609168926301" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1609251543959" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -225,10 +234,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="573" y="371" key="VCS.ChangelistChooser/0.0.1440.900@0.0.1440.900" timestamp="1603640517402" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1603641612151">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609251547863">
+      <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603641612151" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1609251547863" />
     <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
