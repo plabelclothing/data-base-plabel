@@ -58,6 +58,7 @@ BEGIN
 
        `dict_color`.`name` AS `dict_color__name`,
        `dict_color`.`code` AS `dict_color__code`,
+       `dict_color`.`hex` AS `dict_color__hex`,
 
        `dict_product`.`name` AS `dict_product__name`,
        `dict_product`.`code` AS `dict_product__code`,

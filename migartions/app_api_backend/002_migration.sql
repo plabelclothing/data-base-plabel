@@ -35,6 +35,7 @@ CREATE TABLE `dict_color`
     `id`       INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     `code`     VARCHAR(36)      NOT NULL,
     `name`     VARCHAR(36)      NOT NULL,
+    `hex`      VARCHAR(36)      NOT NULL,
     `modified` INT(10) UNSIGNED NOT NULL,
     `created`  INT(10) UNSIGNED NOT NULL,
     PRIMARY KEY (`id`)
@@ -163,6 +164,7 @@ BEGIN
 
        `dict_color`.`name` AS `dict_color__name`,
        `dict_color`.`code` AS `dict_color__code`,
+       `dict_color`.`hex` AS `dict_color__hex`,
 
        `dict_product`.`name` AS `dict_product__name`,
        `dict_product`.`code` AS `dict_product__code`,
@@ -256,6 +258,7 @@ BEGIN
 
            `dict_color`.`name`                                AS `dict_color__name`,
            `dict_color`.`code`                                AS `dict_color__code`,
+           `dict_color`.`hex`                                 AS `dict_color__hex`,
 
            `dict_product`.`name`                              AS `dict_product__name`,
            `dict_product`.`code`                              AS `dict_product__code`,
