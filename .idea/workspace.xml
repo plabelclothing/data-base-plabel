@@ -28,8 +28,6 @@
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__common.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__common.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__internal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__internal.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
