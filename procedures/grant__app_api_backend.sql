@@ -4,7 +4,7 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `root`@`localhost` PROCEDURE `grant__app_api_backend`()
+    DEFINER = `plabel`@`localhost` PROCEDURE `grant__app_api_backend`()
     MODIFIES SQL DATA
 BEGIN
 
