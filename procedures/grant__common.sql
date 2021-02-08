@@ -4,7 +4,7 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `plabel`@`localhost` PROCEDURE `grant__common`()
+    DEFINER = `root`@`localhost` PROCEDURE `grant__common`()
     MODIFIES SQL DATA
 BEGIN
     GRANT EXECUTE ON PROCEDURE `common__country__insert` TO 'internal'@'localhost';

@@ -28,6 +28,9 @@
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__common.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__common.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__internal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__internal.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/mysqld" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +63,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
+      <recent name="$PROJECT_DIR$/procedures/common" />
+      <recent name="$PROJECT_DIR$/procedures" />
+      <recent name="$PROJECT_DIR$/functions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/migartions" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
-      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
-      <recent name="$PROJECT_DIR$/procedures/common" />
-      <recent name="$PROJECT_DIR$/procedures" />
-      <recent name="$PROJECT_DIR$/functions" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -99,6 +102,9 @@
       <workItem from="1610021236521" duration="545000" />
       <workItem from="1611585352833" duration="44000" />
       <workItem from="1612696595087" duration="279000" />
+      <workItem from="1612698890206" duration="1338000" />
+      <workItem from="1612766264462" duration="1201000" />
+      <workItem from="1612788361887" duration="2411000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -149,7 +155,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610021492691</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added adress to grands">
+      <created>1612698712462</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612698712462</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added mysqld">
+      <created>1612794968846</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612794968846</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -190,7 +210,9 @@
     <MESSAGE value="added new procedure" />
     <MESSAGE value="merge" />
     <MESSAGE value="added hex code of color" />
-    <option name="LAST_COMMIT_MESSAGE" value="added hex code of color" />
+    <MESSAGE value="added adress to grands" />
+    <MESSAGE value="added mysqld" />
+    <option name="LAST_COMMIT_MESSAGE" value="added mysqld" />
   </component>
   <component name="WindowStateProjectService">
     <state x="85" y="294" key="#SQL_Dialects" timestamp="1608203432250">
@@ -201,11 +223,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608200507893" />
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1610021491630">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1612794967989">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1610021491630" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1612794967989" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -230,10 +252,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608201165229" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610021496603">
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612794995090">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1610021496603" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1612794995090" />
     <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

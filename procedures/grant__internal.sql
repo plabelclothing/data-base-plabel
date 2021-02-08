@@ -4,7 +4,7 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `plabel`@`localhost` PROCEDURE `grant__internal`()
+    DEFINER = `root`@`localhost` PROCEDURE `grant__internal`()
     MODIFIES SQL DATA
 BEGIN
     GRANT Alter, Create, Delete, Execute, Insert, Select, Show Databases, Update ON *.* TO `internal`@`localhost`;
