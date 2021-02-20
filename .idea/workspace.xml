@@ -26,8 +26,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_email__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_email__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_ipn__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction_log__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__check_exist.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__get.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__update.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +74,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/migartions/app_api_backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -72,9 +86,9 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures" />
-      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/procedures" />
     </key>
@@ -106,7 +120,9 @@
       <workItem from="1613115678699" duration="854000" />
       <workItem from="1613117659910" duration="1240000" />
       <workItem from="1613135751064" duration="1189000" />
-      <workItem from="1613412340358" duration="2032000" />
+      <workItem from="1613412340358" duration="2174000" />
+      <workItem from="1613670319529" duration="5521000" />
+      <workItem from="1613816852278" duration="5135000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -178,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612802135304</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added new tables">
+      <created>1613414512943</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1613414512943</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -222,7 +245,8 @@
     <MESSAGE value="added adress to grands" />
     <MESSAGE value="added mysqld" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="added new tables" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new tables" />
   </component>
   <component name="WindowStateProjectService">
     <state x="85" y="294" key="#SQL_Dialects" timestamp="1608203432250">
@@ -233,11 +257,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608200507893" />
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1612802134324">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1613414511973">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1612802134324" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1613414511973" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -262,10 +286,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608201165229" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612803398985">
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613414518950">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1612803398985" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1613414518950" />
     <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
