@@ -16,19 +16,20 @@ CREATE TABLE `user`
 
 CREATE TABLE `user_details`
 (
-    `id`              INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `user_id`         INT(10) UNSIGNED NOT NULL,
-    `first_name`      VARCHAR(64)      NOT NULL,
-    `last_name`       VARCHAR(64)      NOT NULL,
+    `id`              INT(10) UNSIGNED              NOT NULL AUTO_INCREMENT,
+    `user_id`         INT(10) UNSIGNED              NOT NULL,
+    `first_name`      VARCHAR(64)                   NULL,
+    `last_name`       VARCHAR(64)                   NULL,
     `birthday`        DATE,
     `phone`           VARCHAR(64),
-    `street`          VARCHAR(200)     NOT NULL,
-    `zip`             VARCHAR(30)      NOT NULL,
-    `city`            VARCHAR(100)     NOT NULL,
-    `dict_country_id` INT(10) UNSIGNED NOT NULL,
-    `newsletter`      TINYINT(1),
-    `created`         INT(10) UNSIGNED NOT NULL,
-    `modified`        INT(10) UNSIGNED NOT NULL,
+    `street`          VARCHAR(200)                  NULL,
+    `zip`             VARCHAR(30)                   NULL,
+    `city`            VARCHAR(100)                  NULL,
+    `dict_country_id` INT(10) UNSIGNED              NULL,
+    `policies`        TINYINT(1) UNSIGNED DEFAULT 1 NOT NULL,
+    `newsletter`      TINYINT(1) UNSIGNED DEFAULT 1 NOT NULL,
+    `created`         INT(10) UNSIGNED              NOT NULL,
+    `modified`        INT(10) UNSIGNED              NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX (`user_id`),
     FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
@@ -86,6 +87,7 @@ CREATE TABLE `notification_email`
     `user_id`  INT(10) UNSIGNED                      NULL,
     `uuid`     CHAR(36)                              NOT NULL,
     `template` VARCHAR(155)                          NOT NULL,
+    `to`       VARCHAR(155)                          NOT NULL,
     `status`   ENUM ('new','pending','sent','error') NOT NULL,
     `body`     JSON,
     `created`  INT(10) UNSIGNED                      NOT NULL,
@@ -180,26 +182,34 @@ DELIMITER $$
 CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_backend__notification_email__insert`(IN notification_email__uuid CHAR(36),
                                                                                          IN user__uuid CHAR(36),
+                                                                                         IN notification_email__to VARCHAR(155),
                                                                                          IN notification_email__template VARCHAR(155),
                                                                                          IN notification_email__status ENUM ('new','pending','sent','error'),
                                                                                          IN notification_email__body JSON)
 BEGIN
 
-    INSERT
-    INTO `notification_email`
-    (`user_id`, `uuid`, `template`, `status`, `body`, `created`, `modified`)
-    SELECT `user`.`id`,
-           notification_email__uuid,
-           notification_email__template,
-           notification_email__status,
-           notification_email__body,
-           UNIX_TIMESTAMP(),
-           UNIX_TIMESTAMP()
+    DECLARE `_user__id` INT(10) UNSIGNED;
+
+    SELECT `user`.`id`
+    INTO `_user__id`
     FROM `user`
     WHERE `user`.`uuid` = user__uuid;
 
+    INSERT
+    INTO `notification_email`
+    (`user_id`, `uuid`, `to`, `template`, `status`, `body`, `created`, `modified`)
+    VALUES (_user__id,
+            notification_email__uuid,
+            notification_email__to,
+            notification_email__template,
+            notification_email__status,
+            notification_email__body,
+            UNIX_TIMESTAMP(),
+            UNIX_TIMESTAMP());
+
 END */$$
 DELIMITER ;
+
 
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__notification_email__update` */;
 
@@ -225,13 +235,14 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__check_exist`(IN user__email CHAR(255)
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__check_exist`(IN user__uuid CHAR(36)
 )
 BEGIN
 
-    SELECT `user`.`uuid` AS `user__uuid`
+    SELECT `user`.`email`    AS `user__email`,
+           `user`.`password` AS `user__password`
     FROM `user`
-    WHERE `user`.`email` = user__email;
+    WHERE `user`.`uuid` = user__uuid;
 
 END */$$
 DELIMITER ;
@@ -242,17 +253,42 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__insert`(IN user__email CHAR(255),
-                                                                           IN user__password VARCHAR(128))
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__insert`(IN user__uuid CHAR(36),
+                                                                           IN user__email CHAR(255),
+                                                                           IN user__password VARCHAR(128),
+                                                                           IN user_details__birthday DATE,
+                                                                           IN user_details__newsletter TINYINT(1) UNSIGNED)
 BEGIN
+
+    DECLARE `_user__id` INT(10) UNSIGNED;
 
     INSERT
     INTO `user`
-        (`uuid`, `email`, `password`, `created`, `modified`)
-    VALUES (`uuid_v4`(), user__email, user__password, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
+    (`uuid`, `email`, `password`, `created`, `modified`)
+    VALUES (user__uuid, user__email, user__password, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
+
+    SELECT `user`.`id`
+    INTO `_user__id`
+    FROM `user`
+    WHERE `user`.`uuid` = user__uuid;
+
+    IF `_user__id` IS NULL
+    THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No user id', MYSQL_ERRNO = 1000;
+    END IF;
+
+    INSERT
+    INTO `user_details`
+    (`user_id`, `birthday`, `newsletter`, `created`, `modified`)
+    VALUES (`_user__id`,
+            user_details__birthday,
+            user_details__newsletter,
+            UNIX_TIMESTAMP(),
+            UNIX_TIMESTAMP());
 
 END */$$
 DELIMITER ;
+
 
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__user__update` */;
 
@@ -286,8 +322,12 @@ CREATE
 BEGIN
 
     SELECT `user_portal_link`.`uuid` AS `user_portal_link__uuid`,
-           `user_portal_link`.`type` AS `user_portal_link__type`
+           `user_portal_link`.`type` AS `user_portal_link__type`,
+
+           `user`.`uuid`             AS `user__uuid`
     FROM `user_portal_link`
+             LEFT JOIN `user`
+                       ON `user`.`id` = `user_portal_link`.`user_id`
     WHERE `user_portal_link`.`uuid` = user_portal_link__uuid
       AND `user_portal_link`.`type` = user_portal_link__type
       AND `user_portal_link`.`active_to` > user_portal_link__active_to
@@ -295,6 +335,7 @@ BEGIN
 
 END */$$
 DELIMITER ;
+
 
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_portal_link__insert` */;
 
@@ -470,7 +511,7 @@ BEGIN
 
     INSERT
     INTO `transaction_log`
-    (`uuid`, `transaction_id`, `data`, `created`, `modified`)
+        (`uuid`, `transaction_id`, `data`, `created`, `modified`)
     SELECT `uuid_v4`(),
            `transaction`.`id`,
            transaction_log__data,
@@ -501,12 +542,100 @@ BEGIN
 
     INSERT
     INTO `notification_ipn`
-    (`uuid`, `transaction_id`, `data`, `created`, `modified`)
+        (`uuid`, `transaction_id`, `data`, `created`, `modified`)
     VALUES (`uuid_v4`(),
             _transaction_id,
             notification_ipn__data,
             UNIX_TIMESTAMP(),
             UNIX_TIMESTAMP());
+
+END */$$
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user__signin` */;
+
+DELIMITER $$
+
+/*!50003
+CREATE
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__signin`(IN user__email CHAR(36),
+                                                                           IN user__password VARCHAR(128))
+BEGIN
+
+    SELECT `user`.`uuid`  AS `user__uuid`,
+           `user`.`email` AS `user__email`
+    FROM `user`
+    WHERE `user`.`email` = user__email
+      AND `user`.`is_active` = 1
+      AND `user`.`password` = user__password;
+
+END */$$
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user__check_exist_by_email` */;
+
+DELIMITER $$
+
+/*!50003
+CREATE
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__check_exist_by_email`(IN user__email CHAR(255)
+)
+BEGIN
+
+    SELECT `user`.`uuid` AS `user__uuid`
+    FROM `user`
+    WHERE `user`.`email` = user__email;
+
+END */$$
+DELIMITER ;
+
+/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_details__update` */;
+
+DELIMITER $$
+
+/*!50003
+CREATE
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user_details__update`(IN user__uuid CHAR(36),
+                                                                                   IN user_details__firstname VARCHAR(64),
+                                                                                   IN user_details__lastname VARCHAR(64),
+                                                                                   IN user_details__birthday DATE,
+                                                                                   IN user_details__phone VARCHAR(64),
+                                                                                   IN user_details__street VARCHAR(200),
+                                                                                   IN user_details__zip VARCHAR(30),
+                                                                                   IN user_details__city VARCHAR(100),
+                                                                                   IN dict_country__iso CHAR(3))
+BEGIN
+
+    DECLARE `_dict_country__id` INT(10) UNSIGNED;
+
+    IF (dict_country__iso IS NOT NULL)
+    THEN
+        SELECT `dict_country`.`id`
+        INTO `_dict_country__id`
+        FROM `dict_country`
+        WHERE `dict_country`.`iso` = dict_country__iso;
+
+        IF `_dict_country__id` IS NULL
+        THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No dict country id', MYSQL_ERRNO = 1000;
+        END IF;
+
+    END IF;
+
+    UPDATE `user_details`
+        INNER JOIN `user`
+        ON `user`.`id` = `user_details`.`user_id`
+    SET `user_details`.`first_name`      = IFNULL(user_details__firstname, `user_details`.`first_name`),
+        `user_details`.`last_name`       = IFNULL(user_details__lastname, `user_details`.`last_name`),
+        `user_details`.`birthday`        = IFNULL(user_details__birthday, `user_details`.`birthday`),
+        `user_details`.`phone`           = IFNULL(user_details__phone, `user_details`.`phone`),
+        `user_details`.`street`          = IFNULL(user_details__street, `user_details`.`street`),
+        `user_details`.`zip`             = IFNULL(user_details__zip, `user_details`.`zip`),
+        `user_details`.`city`            = IFNULL(user_details__city, `user_details`.`city`),
+        `user_details`.`dict_country_id` = IFNULL(_dict_country__id, `user_details`.`dict_country_id`),
+        `user_details`.`modified`        = UNIX_TIMESTAMP()
+    WHERE `user`.`uuid` = user__uuid;
+
 
 END */$$
 DELIMITER ;

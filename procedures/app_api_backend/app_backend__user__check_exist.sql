@@ -4,13 +4,14 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__check_exist`(IN user__email CHAR(255)
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user__check_exist`(IN user__uuid CHAR(36)
 )
 BEGIN
 
-    SELECT `user`.`uuid` AS `user__uuid`
+    SELECT `user`.`email`    AS `user__email`,
+           `user`.`password` AS `user__password`
     FROM `user`
-    WHERE `user`.`email` = user__email;
+    WHERE `user`.`uuid` = user__uuid;
 
 END */$$
 DELIMITER ;

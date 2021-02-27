@@ -10,8 +10,12 @@ CREATE
 BEGIN
 
     SELECT `user_portal_link`.`uuid` AS `user_portal_link__uuid`,
-           `user_portal_link`.`type` AS `user_portal_link__type`
+           `user_portal_link`.`type` AS `user_portal_link__type`,
+
+           `user`.`uuid`             AS `user__uuid`
     FROM `user_portal_link`
+             LEFT JOIN `user`
+                       ON `user`.`id` = `user_portal_link`.`user_id`
     WHERE `user_portal_link`.`uuid` = user_portal_link__uuid
       AND `user_portal_link`.`type` = user_portal_link__type
       AND `user_portal_link`.`active_to` > user_portal_link__active_to

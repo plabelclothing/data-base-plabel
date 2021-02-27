@@ -26,21 +26,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_email__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_email__update.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_ipn__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction_log__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__check_exist.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__update.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__get.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__check_exist_by_email.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__signin.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_details__update.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_email__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_email__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__check_exist.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__check_exist.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_portal_link__get.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +116,10 @@
       <workItem from="1613135751064" duration="1189000" />
       <workItem from="1613412340358" duration="2174000" />
       <workItem from="1613670319529" duration="5521000" />
-      <workItem from="1613816852278" duration="5135000" />
+      <workItem from="1613816852278" duration="5168000" />
+      <workItem from="1614007344805" duration="2819000" />
+      <workItem from="1614350349921" duration="3449000" />
+      <workItem from="1614419562327" duration="5764000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -201,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613414512943</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added new procedures">
+      <created>1613823092403</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1613823092403</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -246,7 +250,8 @@
     <MESSAGE value="added mysqld" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="added new tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new tables" />
+    <MESSAGE value="added new procedures" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new procedures" />
   </component>
   <component name="WindowStateProjectService">
     <state x="85" y="294" key="#SQL_Dialects" timestamp="1608203432250">
@@ -257,11 +262,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608200507893" />
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1613414511973">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1613823091361">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1613414511973" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1613823091361" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -286,10 +291,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608201165229" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613414518950">
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613823102691">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1613414518950" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1613823102691" />
     <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
