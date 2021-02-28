@@ -22,6 +22,11 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user__signin` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user__update` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__change_count` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__delete` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__insert` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__update` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart_items__get_by_uuid` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__update` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_portal_link__get` TO 'internal'@'localhost';
@@ -41,6 +46,11 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user__signin` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user__update` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__change_count` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__delete` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__insert` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__update` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_cart_items__get_by_uuid` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__update` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_portal_link__get` TO 'app_api_backend'@'localhost';
