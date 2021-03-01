@@ -788,6 +788,11 @@ BEGIN
                        ON `currency_exchange_rate`.`dict_currency_id` = `dict_currency`.`id`
     WHERE `dict_country`.`iso` = _dict_country__iso;
 
+    IF `__dict_currency__iso4217` IS NULL
+    THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No user currency', MYSQL_ERRNO = 1000;
+    END IF;
+
     SELECT COUNT(`products`.`id`)                             AS `products__count`,
            `products`.`uuid`                                  AS `products__uuid`,
 
@@ -836,6 +841,7 @@ BEGIN
 
 END */$$
 DELIMITER ;
+
 
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_cart__delete` */;
 
@@ -888,7 +894,8 @@ BEGIN
                  INNER JOIN `products`
                             ON `products`.`id` = `user_cart_items`.`products_id`
         WHERE `products`.`uuid` = product__uuid
-          AND `user_cart`.`uuid` = user_cart__uuid;
+          AND `user_cart`.`uuid` = user_cart__uuid
+        LIMIT 1;
 
     END IF;
 

@@ -27,7 +27,8 @@ BEGIN
                  INNER JOIN `products`
                             ON `products`.`id` = `user_cart_items`.`products_id`
         WHERE `products`.`uuid` = product__uuid
-          AND `user_cart`.`uuid` = user_cart__uuid;
+          AND `user_cart`.`uuid` = user_cart__uuid
+        LIMIT 1;
 
     END IF;
 
