@@ -11,7 +11,7 @@ BEGIN
 
     DECLARE `_user__id` INT(10) UNSIGNED;
     DECLARE `_user_cart__id` INT(10) UNSIGNED;
-    DECLARE `_user_cart__item` JSON;
+    DECLARE `_user_cart__item` CHAR(36);
     DECLARE `_products_id` INT(10) UNSIGNED;
     DECLARE `_iteration` INT(10) DEFAULT 0;
 
@@ -32,8 +32,8 @@ BEGIN
 
     INSERT
     INTO `user_cart`
-        (`uuid`, `user_id`, `is_active`, `created`, `modified`)
-    VALUES (user_cart__uuid, _user__id, 1, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
+        (`uuid`, `user_id`, `created`, `modified`)
+    VALUES (user_cart__uuid, _user__id, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
 
     SELECT `user_cart`.`id`
     INTO `_user_cart__id`
@@ -47,13 +47,13 @@ BEGIN
 
     WHILE _iteration < JSON_LENGTH(user_cart_items__data)
         DO
-            SELECT JSON_EXTRACT(user_cart_items__data, CONCAT('$[', _iteration, ']'))
+            SELECT JSON_UNQUOTE(JSON_EXTRACT(user_cart_items__data, CONCAT('$[', _iteration, ']')))
             INTO _user_cart__item;
 
             SELECT `products`.`id`
             INTO _products_id
             FROM `products`
-            WHERE `products`.`uuid` = JSON_UNQUOTE(JSON_EXTRACT(_user_cart__item, '$.productUuid'));
+            WHERE `products`.`uuid` = _user_cart__item;
 
             INSERT
             INTO `user_cart_items`

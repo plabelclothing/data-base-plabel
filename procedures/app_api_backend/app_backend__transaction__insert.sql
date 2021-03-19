@@ -9,7 +9,7 @@ CREATE
                                                                                   IN payment_method__code VARCHAR(255),
                                                                                   IN dict_currency__iso4217 CHAR(3),
                                                                                   IN transaction__amount INT(10) UNSIGNED,
-                                                                                  IN transaction__status ENUM ('pending','settled','canceled','error'))
+                                                                                  IN transaction__status ENUM ('pending','settled','canceled','error', 'new'))
 BEGIN
 
     DECLARE `_user_order_id` INT(10) UNSIGNED;

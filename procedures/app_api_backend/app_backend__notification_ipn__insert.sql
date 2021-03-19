@@ -10,10 +10,13 @@ BEGIN
 
     DECLARE `_transaction_id` INT(10) UNSIGNED;
 
-    SELECT `transaction`.`id`
-    INTO `_transaction_id`
-    FROM `transaction`
-    WHERE `transaction`.`uuid` = transaction__uuid;
+    IF (transaction__uuid IS NOT NULL)
+    THEN
+        SELECT `transaction`.`id`
+        INTO `_transaction_id`
+        FROM `transaction`
+        WHERE `transaction`.`uuid` = transaction__uuid;
+    END IF;
 
     INSERT
     INTO `notification_ipn`

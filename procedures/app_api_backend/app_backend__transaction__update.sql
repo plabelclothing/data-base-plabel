@@ -6,7 +6,7 @@ DELIMITER $$
 CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction__update`(IN transaction__uuid CHAR(36),
                                                                                   IN transaction_external_id VARCHAR(255),
-                                                                                  IN transaction__status ENUM ('pending','settled','canceled','error'),
+                                                                                  IN transaction__status ENUM ('new','pending','settled','canceled','error'),
                                                                                   IN transaction__settled_at INT(10) UNSIGNED)
 BEGIN
 

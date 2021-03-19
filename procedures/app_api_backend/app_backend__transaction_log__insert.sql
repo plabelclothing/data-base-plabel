@@ -5,7 +5,7 @@ DELIMITER $$
 /*!50003
 CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction_log__insert`(IN transaction__uuid CHAR(36),
-                                                                                      IN transaction_log__data CHAR(36))
+                                                                                      IN transaction_log__data JSON)
 BEGIN
 
     INSERT

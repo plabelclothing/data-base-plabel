@@ -66,7 +66,6 @@ BEGIN
                        ON `dict_size`.`id` = `products`.`dict_size_id`
 
     WHERE `products`.`is_active` = 1
-      AND `user_cart`.`is_active` = 1
       AND `user_cart`.`uuid` = _user_cart__uuid
 
     GROUP BY `products`.`uuid`, `list_product`.`name`, `list_product`.`uuid`, `list_product`.`images`,

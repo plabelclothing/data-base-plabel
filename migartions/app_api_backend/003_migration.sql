@@ -38,15 +38,13 @@ CREATE TABLE `user_details`
 
 CREATE TABLE `user_cart`
 (
-    `id`        INT(10) UNSIGNED              NOT NULL AUTO_INCREMENT,
-    `uuid`      CHAR(36)                      NOT NULL,
-    `user_id`   INT(10) UNSIGNED,
-    `is_active` TINYINT(1) UNSIGNED DEFAULT 1 NOT NULL,
-    `created`   INT(10) UNSIGNED              NOT NULL,
-    `modified`  INT(10) UNSIGNED              NOT NULL,
+    `id`       INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `uuid`     CHAR(36)         NOT NULL,
+    `user_id`  INT(10) UNSIGNED,
+    `created`  INT(10) UNSIGNED NOT NULL,
+    `modified` INT(10) UNSIGNED NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX (`uuid`),
-    UNIQUE INDEX (`user_id`, `is_active`),
     FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 );
 
@@ -69,12 +67,13 @@ CREATE TABLE `user_order`
     `user_cart_id`           INT(10) UNSIGNED NOT NULL,
     `user_id`                INT(10) UNSIGNED,
     `additional_information` JSON,
-    `another_address`        JSON,
+    `address`                JSON,
     `tracking_number`        VARCHAR(255),
     `created`                INT(10) UNSIGNED NOT NULL,
     `modified`               INT(10) UNSIGNED NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX (`uuid`),
+    UNIQUE INDEX (`user_cart_id`),
     FOREIGN KEY (`user_cart_id`) REFERENCES `user_cart` (`id`),
     FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 );
@@ -125,17 +124,17 @@ CREATE TABLE `payment_method`
 
 CREATE TABLE `transaction`
 (
-    `id`                INT(10) UNSIGNED                              NOT NULL AUTO_INCREMENT,
-    `uuid`              CHAR(36)                                      NOT NULL,
+    `id`                INT(10) UNSIGNED                                    NOT NULL AUTO_INCREMENT,
+    `uuid`              CHAR(36)                                            NOT NULL,
     `external_id`       VARCHAR(255),
-    `user_order_id`     INT(10) UNSIGNED                              NOT NULL,
-    `payment_method_id` INT(10) UNSIGNED                              NOT NULL,
-    `dict_currency_id`  INT(10) UNSIGNED                              NOT NULL,
-    `amount`            INT(10) UNSIGNED                              NOT NULL,
-    `status`            ENUM ('pending','settled','canceled','error') NOT NULL,
-    `settled_at`        INT(10) UNSIGNED                              NOT NULL,
-    `created`           INT(10) UNSIGNED                              NOT NULL,
-    `modified`          INT(10) UNSIGNED                              NOT NULL,
+    `user_order_id`     INT(10) UNSIGNED                                    NOT NULL,
+    `payment_method_id` INT(10) UNSIGNED                                    NOT NULL,
+    `dict_currency_id`  INT(10) UNSIGNED                                    NOT NULL,
+    `amount`            INT(10) UNSIGNED                                    NOT NULL,
+    `status`            ENUM ('new','pending','settled','canceled','error') NOT NULL,
+    `settled_at`        INT(10) UNSIGNED                                    NULL,
+    `created`           INT(10) UNSIGNED                                    NOT NULL,
+    `modified`          INT(10) UNSIGNED                                    NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX (`uuid`),
     FOREIGN KEY (`user_order_id`) REFERENCES `user_order` (`id`),
@@ -167,6 +166,18 @@ CREATE TABLE `notification_ipn`
     UNIQUE INDEX (`id`),
     INDEX (`uuid`),
     FOREIGN KEY (`transaction_id`) REFERENCES `transaction` (`id`)
+);
+
+CREATE TABLE `payment_method_auth`
+(
+    `id`                INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `payment_method_id` INT(10) UNSIGNED NOT NULL,
+    `data`              JSON             NOT NULL,
+    `created`           INT(10) UNSIGNED NOT NULL,
+    `modified`          INT(10) UNSIGNED NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX (`payment_method_id`),
+    FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method` (`id`)
 );
 
 
@@ -390,27 +401,56 @@ CREATE
                                                                                  IN user_cart__uuid CHAR(36),
                                                                                  IN user__uuid CHAR(36),
                                                                                  IN user_cart__additional_information JSON,
-                                                                                 IN user_cart__another_address JSON,
+                                                                                 IN user_cart__address JSON,
                                                                                  IN user_cart__tracking_number VARCHAR(255))
 BEGIN
 
+    DECLARE `_user__id` INT(10) UNSIGNED;
+    DECLARE `_user_cart__id` INT(10) UNSIGNED;
+
+    IF (user__uuid IS NOT NULL)
+    THEN
+
+        SELECT `user`.`id`
+        INTO _user__id
+        FROM `user`
+        WHERE `user`.`uuid` = user__uuid;
+
+        IF `_user__id` IS NULL
+        THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No user id', MYSQL_ERRNO = 1000;
+        END IF;
+
+    END IF;
+
+    SELECT `user_cart`.`id`
+    INTO _user_cart__id
+    FROM `user_cart`
+    WHERE `user_cart`.`uuid` = user_cart__uuid;
+
+    IF `_user_cart__id` IS NULL
+    THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No user cart id', MYSQL_ERRNO = 1001;
+    END IF;
+
     INSERT
-    INTO `user_cart`
-    (`uuid`, `user_cart_id`, `user_id`, `additional_information`, `another_address`, `tracking_number`, `created`,
-     `modified`)
-    SELECT user_order__uuid,
-           user_cart__uuid,
-           `user`.`id`,
-           user_cart__additional_information,
-           user_cart__another_address,
-           user_cart__tracking_number,
-           UNIX_TIMESTAMP(),
-           UNIX_TIMESTAMP()
-    FROM `user`
-    WHERE `user`.`uuid` = user__uuid;
+    INTO `user_order`
+    (`uuid`, `user_cart_id`, `user_id`, `additional_information`, `address`, `tracking_number`, `created`, `modified`)
+    VALUES (user_order__uuid,
+            _user_cart__id,
+            _user__id,
+            user_cart__additional_information,
+            user_cart__address,
+            user_cart__tracking_number,
+            UNIX_TIMESTAMP(),
+            UNIX_TIMESTAMP());
 
 END */$$
 DELIMITER ;
+
+
+INSERT INTO `payment_method` (`uuid`, `name`, `code`, `modified`, `created`)
+VALUES (`uuid_v4`(), 'PayPal', 'PAY_PAL', UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
 
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__transaction__insert` */;
 
@@ -423,7 +463,7 @@ CREATE
                                                                                   IN payment_method__code VARCHAR(255),
                                                                                   IN dict_currency__iso4217 CHAR(3),
                                                                                   IN transaction__amount INT(10) UNSIGNED,
-                                                                                  IN transaction__status ENUM ('pending','settled','canceled','error'))
+                                                                                  IN transaction__status ENUM ('new','pending','settled','canceled','error'))
 BEGIN
 
     DECLARE `_user_order_id` INT(10) UNSIGNED;
@@ -483,7 +523,7 @@ DELIMITER $$
 CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction__update`(IN transaction__uuid CHAR(36),
                                                                                   IN transaction_external_id VARCHAR(255),
-                                                                                  IN transaction__status ENUM ('pending','settled','canceled','error'),
+                                                                                  IN transaction__status ENUM ('new', 'pending','settled','canceled','error'),
                                                                                   IN transaction__settled_at INT(10) UNSIGNED)
 BEGIN
 
@@ -504,7 +544,7 @@ DELIMITER $$
 /*!50003
 CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction_log__insert`(IN transaction__uuid CHAR(36),
-                                                                                      IN transaction_log__data CHAR(36))
+                                                                                      IN transaction_log__data JSON)
 BEGIN
 
     INSERT
@@ -533,14 +573,17 @@ BEGIN
 
     DECLARE `_transaction_id` INT(10) UNSIGNED;
 
-    SELECT `transaction`.`id`
-    INTO `_transaction_id`
-    FROM `transaction`
-    WHERE `transaction`.`uuid` = transaction__uuid;
+    IF (transaction__uuid IS NOT NULL)
+    THEN
+        SELECT `transaction`.`id`
+        INTO `_transaction_id`
+        FROM `transaction`
+        WHERE `transaction`.`uuid` = transaction__uuid;
+    END IF;
 
     INSERT
     INTO `notification_ipn`
-        (`uuid`, `transaction_id`, `data`, `created`, `modified`)
+    (`uuid`, `transaction_id`, `data`, `created`, `modified`)
     VALUES (`uuid_v4`(),
             _transaction_id,
             notification_ipn__data,
@@ -651,7 +694,7 @@ BEGIN
 
     DECLARE `_user__id` INT(10) UNSIGNED;
     DECLARE `_user_cart__id` INT(10) UNSIGNED;
-    DECLARE `_user_cart__item` JSON;
+    DECLARE `_user_cart__item` CHAR(36);
     DECLARE `_products_id` INT(10) UNSIGNED;
     DECLARE `_iteration` INT(10) DEFAULT 0;
 
@@ -672,8 +715,8 @@ BEGIN
 
     INSERT
     INTO `user_cart`
-        (`uuid`, `user_id`, `is_active`, `created`, `modified`)
-    VALUES (user_cart__uuid, _user__id, 1, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
+        (`uuid`, `user_id`, `created`, `modified`)
+    VALUES (user_cart__uuid, _user__id, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
 
     SELECT `user_cart`.`id`
     INTO `_user_cart__id`
@@ -687,65 +730,13 @@ BEGIN
 
     WHILE _iteration < JSON_LENGTH(user_cart_items__data)
         DO
-            SELECT JSON_EXTRACT(user_cart_items__data, CONCAT('$[', _iteration, ']'))
+            SELECT JSON_UNQUOTE(JSON_EXTRACT(user_cart_items__data, CONCAT('$[', _iteration, ']')))
             INTO _user_cart__item;
 
             SELECT `products`.`id`
             INTO _products_id
             FROM `products`
-            WHERE `products`.`uuid` = JSON_UNQUOTE(JSON_EXTRACT(_user_cart__item, '$.productUuid'));
-
-            INSERT
-            INTO `user_cart_items`
-                (`user_cart_id`, `products_id`, `created`, `modified`)
-            VALUES (`_user_cart__id`,
-                    `_products_id`,
-                    UNIX_TIMESTAMP(),
-                    UNIX_TIMESTAMP());
-
-            SET _user_cart__item = NULL;
-            SET _products_id = NULL;
-            SET _iteration = _iteration + 1;
-        END WHILE;
-
-END */$$
-DELIMITER ;
-
-
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_cart__update` */;
-
-DELIMITER $$
-
-/*!50003
-CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user_cart__update`(IN user_cart__uuid CHAR(36),
-                                                                                IN user_cart_items JSON)
-BEGIN
-
-    DECLARE `_user_cart__id` INT(10) UNSIGNED;
-    DECLARE `_user_cart__item` JSON;
-    DECLARE `_products_id` INT(10) UNSIGNED;
-    DECLARE `_iteration` INT(10) DEFAULT 0;
-
-    SELECT `user_cart`.`id`
-    INTO `_user_cart__id`
-    FROM `user_cart`
-    WHERE `user_cart`.`uuid` = user_cart__uuid;
-
-    IF `_user_cart__id` IS NULL
-    THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No user cart id', MYSQL_ERRNO = 1001;
-    END IF;
-
-    WHILE _iteration < JSON_LENGTH(user_cart_items)
-        DO
-            SELECT JSON_EXTRACT(user_cart_items, CONCAT('$[', _iteration, ']'))
-            INTO _user_cart__item;
-
-            SELECT `products`.`id`
-            INTO _products_id
-            FROM `products`
-            WHERE `products`.`uuid` = JSON_UNQUOTE(JSON_EXTRACT(_user_cart__item, '$.productUuid'));
+            WHERE `products`.`uuid` = _user_cart__item;
 
             INSERT
             INTO `user_cart_items`
@@ -831,7 +822,6 @@ BEGIN
                        ON `dict_size`.`id` = `products`.`dict_size_id`
 
     WHERE `products`.`is_active` = 1
-      AND `user_cart`.`is_active` = 1
       AND `user_cart`.`uuid` = _user_cart__uuid
 
     GROUP BY `products`.`uuid`, `list_product`.`name`, `list_product`.`uuid`, `list_product`.`images`,
@@ -842,85 +832,23 @@ BEGIN
 END */$$
 DELIMITER ;
 
-
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_cart__delete` */;
-
-DELIMITER $$
-
-/*!50003
-CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user_cart__delete`(IN user_cart__uuid CHAR(36),
-                                                                                IN product__uuid CHAR(36))
-BEGIN
-
-    DELETE `user_cart_items`
-    FROM `user_cart_items`
-             INNER JOIN `user_cart`
-                        ON `user_cart`.`id` = `user_cart_items`.`user_cart_id`
-             INNER JOIN `products`
-                        ON `products`.`id` = `user_cart_items`.`products_id`
-    WHERE `products`.`uuid` = product__uuid
-      AND `user_cart`.`uuid` = user_cart__uuid;
-
-END */$$
-DELIMITER ;
-
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_cart__change_count` */;
+/*!50003 DROP PROCEDURE IF EXISTS `app_backend__transaction__get_by_external_id` */;
 
 DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user_cart__change_count`(IN user_cart__uuid CHAR(36),
-                                                                                      IN product__uuid CHAR(36),
-                                                                                      IN type ENUM ('subtract', 'add'))
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction__get_by_external_id`(IN transaction_external_id VARCHAR(255)
+)
 BEGIN
 
-    DECLARE _user_cart_items__id INT(10) UNSIGNED;
-
-    IF (type = 'add')
-    THEN
-
-        INSERT
-        INTO `user_cart_items`
-            (`user_cart_id`, `products_id`, `created`, `modified`)
-        SELECT `user_cart_items`.`user_cart_id`,
-               `user_cart_items`.`products_id`,
-               UNIX_TIMESTAMP(),
-               UNIX_TIMESTAMP()
-        FROM `user_cart_items`
-                 INNER JOIN `user_cart`
-                            ON `user_cart`.`id` = `user_cart_items`.`user_cart_id`
-                 INNER JOIN `products`
-                            ON `products`.`id` = `user_cart_items`.`products_id`
-        WHERE `products`.`uuid` = product__uuid
-          AND `user_cart`.`uuid` = user_cart__uuid
-        LIMIT 1;
-
-    END IF;
-
-    IF (type = 'subtract')
-    THEN
-
-        SELECT `user_cart_items`.`id`
-        INTO _user_cart_items__id
-        FROM `user_cart_items`
-                 INNER JOIN `user_cart`
-                            ON `user_cart`.`id` = `user_cart_items`.`user_cart_id`
-                 INNER JOIN `products`
-                            ON `products`.`id` = `user_cart_items`.`products_id`
-        WHERE `products`.`uuid` = product__uuid
-          AND `user_cart`.`uuid` = user_cart__uuid
-        LIMIT 1;
-
-        DELETE
-        FROM `user_cart_items`
-        WHERE `user_cart_items`.`id` = `_user_cart_items__id`;
-
-    END IF;
+    SELECT `transaction`.`uuid` AS `transaction__uuid`
+    FROM `transaction`
+    WHERE `transaction`.`external_id` = transaction_external_id;
 
 END */$$
 DELIMITER ;
+
 
 # region procedures
 
