@@ -62,15 +62,16 @@ CREATE TABLE `user_cart_items`
 
 CREATE TABLE `user_order`
 (
-    `id`                     INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `uuid`                   CHAR(36)         NOT NULL,
-    `user_cart_id`           INT(10) UNSIGNED NOT NULL,
+    `id`                     INT(10) UNSIGNED                    NOT NULL AUTO_INCREMENT,
+    `uuid`                   CHAR(36)                            NOT NULL,
+    `user_cart_id`           INT(10) UNSIGNED                    NOT NULL,
     `user_id`                INT(10) UNSIGNED,
+    `status`                 ENUM ('new','completed','canceled') NOT NULL,
     `additional_information` JSON,
     `address`                JSON,
     `tracking_number`        VARCHAR(255),
-    `created`                INT(10) UNSIGNED NOT NULL,
-    `modified`               INT(10) UNSIGNED NOT NULL,
+    `created`                INT(10) UNSIGNED                    NOT NULL,
+    `modified`               INT(10) UNSIGNED                    NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX (`uuid`),
     UNIQUE INDEX (`user_cart_id`),
@@ -435,10 +436,12 @@ BEGIN
 
     INSERT
     INTO `user_order`
-    (`uuid`, `user_cart_id`, `user_id`, `additional_information`, `address`, `tracking_number`, `created`, `modified`)
+    (`uuid`, `user_cart_id`, `user_id`, `status`, `additional_information`, `address`, `tracking_number`, `created`,
+     `modified`)
     VALUES (user_order__uuid,
             _user_cart__id,
             _user__id,
+            'new',
             user_cart__additional_information,
             user_cart__address,
             user_cart__tracking_number,
@@ -447,7 +450,6 @@ BEGIN
 
 END */$$
 DELIMITER ;
-
 
 INSERT INTO `payment_method` (`uuid`, `name`, `code`, `modified`, `created`)
 VALUES (`uuid_v4`(), 'PayPal', 'PAY_PAL', UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
@@ -583,7 +585,7 @@ BEGIN
 
     INSERT
     INTO `notification_ipn`
-    (`uuid`, `transaction_id`, `data`, `created`, `modified`)
+        (`uuid`, `transaction_id`, `data`, `created`, `modified`)
     VALUES (`uuid_v4`(),
             _transaction_id,
             notification_ipn__data,
@@ -849,6 +851,27 @@ BEGIN
 END */$$
 DELIMITER ;
 
+/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_order__update` */;
+
+DELIMITER $$
+
+/*!50003
+CREATE
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user_order__update`(IN _transaction__uuid CHAR(36),
+                                                                                 IN _user_order__address JSON,
+                                                                                 IN _status ENUM ('new','approved','canceled'))
+BEGIN
+
+    UPDATE `user_order`
+        INNER JOIN `transaction`
+        ON `transaction`.`user_order_id` = `user_order`.`id`
+    SET `user_order`.`status`   = IFNULL(_status, `user_order`.`status`),
+        `user_order`.`address`  = IFNULL(_user_order__address, `user_order`.`address`),
+        `user_order`.`modified` = UNIX_TIMESTAMP()
+    WHERE `transaction`.`uuid` = _transaction__uuid;
+
+END */$$
+DELIMITER ;
 
 # region procedures
 

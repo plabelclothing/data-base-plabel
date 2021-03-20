@@ -42,10 +42,12 @@ BEGIN
 
     INSERT
     INTO `user_order`
-    (`uuid`, `user_cart_id`, `user_id`, `additional_information`, `address`, `tracking_number`, `created`, `modified`)
+    (`uuid`, `user_cart_id`, `user_id`, `status`, `additional_information`, `address`, `tracking_number`, `created`,
+     `modified`)
     VALUES (user_order__uuid,
             _user_cart__id,
             _user__id,
+            'new',
             user_cart__additional_information,
             user_cart__address,
             user_cart__tracking_number,

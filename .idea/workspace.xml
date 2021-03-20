@@ -26,19 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__payment_method_auth__get.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__get_by_external_id.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_ipn__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_ipn__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction_log__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction_log__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__change_count.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__delete.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__update.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart_items__get_by_uuid.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart_items__get_by_uuid.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
@@ -82,17 +72,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/procedures/common" />
-      <recent name="$PROJECT_DIR$/migartions" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures" />
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/procedures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/procedures/common" />
+      <recent name="$PROJECT_DIR$/migartions" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -139,7 +129,8 @@
       <workItem from="1615188377225" duration="276000" />
       <workItem from="1615983923403" duration="3988000" />
       <workItem from="1616050122958" duration="593000" />
-      <workItem from="1616156782366" duration="1755000" />
+      <workItem from="1616156782366" duration="2384000" />
+      <workItem from="1616250269571" duration="2861000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -246,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614615442445</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added new procedures">
+      <created>1616166770596</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1616166770596</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -290,9 +288,9 @@
     <MESSAGE value="added adress to grands" />
     <MESSAGE value="added mysqld" />
     <MESSAGE value="added new tables" />
-    <MESSAGE value="added new procedures" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="added new procedures" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new procedures" />
   </component>
   <component name="WindowStateProjectService">
     <state x="85" y="294" key="#SQL_Dialects" timestamp="1608203432250">
@@ -303,11 +301,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608200507893" />
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1614615441663">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1616166769632">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1614615441663" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1616166769632" />
     <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -332,10 +330,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608201165229" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614615466661">
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1616166773168">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1614615466661" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1616166773168" />
     <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
