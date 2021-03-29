@@ -26,11 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__count_get.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +129,7 @@
       <workItem from="1616250269571" duration="2916000" />
       <workItem from="1616772824477" duration="2772000" />
       <workItem from="1616847425347" duration="2267000" />
-      <workItem from="1617011431339" duration="329000" />
+      <workItem from="1617011431339" duration="3023000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -254,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616253341432</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added new procedures">
+      <created>1617011810652</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1617011810653</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -298,60 +301,19 @@
     <MESSAGE value="added adress to grands" />
     <MESSAGE value="added mysqld" />
     <MESSAGE value="added new tables" />
-    <MESSAGE value="added new procedures" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="added new procedures" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new procedures" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="85" y="294" key="#SQL_Dialects" timestamp="1608203432250">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="85" y="294" key="#SQL_Dialects/0.0.1440.900@0.0.1440.900" timestamp="1608203432250" />
-    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608200507893">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608200507893" />
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1616253340370">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1617011809716">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="322" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1608203740984" />
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1616253340370" />
-    <state width="1305" height="224" key="GridCell.Tab.0.bottom" timestamp="1608203690917">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1305" height="224" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608203690917" />
-    <state width="1305" height="224" key="GridCell.Tab.0.center" timestamp="1608203690916">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1305" height="224" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608203690916" />
-    <state width="1305" height="224" key="GridCell.Tab.0.left" timestamp="1608203690915">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1305" height="224" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608203690915" />
-    <state width="1305" height="224" key="GridCell.Tab.0.right" timestamp="1608203690917">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1305" height="224" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608203690917" />
-    <state width="237" height="457" key="HiddenNamespacesPopup" timestamp="1608201335544">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="237" height="457" key="HiddenNamespacesPopup/0.0.1440.900@0.0.1440.900" timestamp="1608201335544" />
-    <state x="229" y="89" key="SettingsEditor" timestamp="1608201165229">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608201165229" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1616253343771">
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1617011809716" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617011813663">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1616253343771" />
-    <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1608202885638">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="627" y="345" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1440.900@0.0.1440.900" timestamp="1608202885638" />
-    <state x="610" y="355" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1608202860202">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="610" y="355" width="334" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1440.900@0.0.1440.900" timestamp="1608202860202" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1617011813663" />
     <state x="656" y="332" width="607" height="536" key="find.popup" timestamp="1614785961516">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -360,10 +322,6 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="741" y="314" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1609251338844" />
-    <state x="385" y="210" key="run.anything.popup" timestamp="1608200453391">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1608200453391" />
     <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1609158388111">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
