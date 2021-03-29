@@ -14,6 +14,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_ipn__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__payment_method_auth__get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__product__get_by_uuid` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__products__count_get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__products__get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__transaction__get_by_external_id` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__transaction__insert` TO 'internal'@'localhost';
@@ -38,6 +39,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_ipn__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__payment_method_auth__get` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__product__get_by_uuid` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__products__count_get` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__products__get` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__transaction__get_by_external_id` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__transaction__insert` TO 'app_api_backend'@'localhost';
