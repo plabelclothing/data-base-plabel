@@ -1,13 +1,11 @@
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__products__get` */;
+/*!50003 DROP PROCEDURE IF EXISTS `app_backend__products__count_get` */;
 
 DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__products__get`(IN _params JSON,
-                                                                            IN _dict_country__iso CHAR(3),
-                                                                            IN _lastId INT(10) UNSIGNED,
-                                                                            IN _limit INT(10) UNSIGNED)
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__products__count_get`(IN _params JSON,
+                                                                                  IN _dict_country__iso CHAR(3))
 BEGIN
 
     DECLARE __dict_collection__code JSON;
@@ -45,33 +43,7 @@ BEGIN
                                   JSON_EXTRACT(`_params`, '$.dictProductCode'), '[]');
 
     SET @__products = CONCAT('SELECT
-       `products`.`uuid` AS `products__uuid`,
-
-       `list_product`.`name` AS `list_product__name`,
-       CAST(IF(', __currency_exchange_rate__value, ' != 1, (`list_product`.`price` * ', __currency_exchange_rate__value, ' / 100 DIV 10) * 10 + 10, `list_product`.`price` / 100) AS UNSIGNED)  AS `list_product__price`,
-       `list_product`.`uuid` AS `list_product__uuid`,
-       `list_product`.`id`   AS `list_product__id`,
-       `list_product`.`images` AS `list_product__images`,
-
-       "', __dict_currency__iso4217, '" AS `dict_currency_iso4217`,
-       "', __dict_currency__symbol, '" AS `dict_currency_symbol`,
-
-       `dict_collection`.`name` AS `dict_collection__name`,
-       `dict_collection`.`code` AS `dict_collection__code`,
-
-       `dict_color`.`name` AS `dict_color__name`,
-       `dict_color`.`code` AS `dict_color__code`,
-       `dict_color`.`hex` AS `dict_color__hex`,
-
-       `dict_product`.`name` AS `dict_product__name`,
-       `dict_product`.`code` AS `dict_product__code`,
-
-       `dict_size`.`name` AS `dict_size__name`,
-       `dict_size`.`code` AS `dict_size__code`,
-
-       `dict_type_of_product`.`name` AS `dict_type_of_product__name`,
-       `dict_type_of_product`.`code` AS `dict_type_of_product__code`
-
+       COUNT(`list_product`.`id`) AS `list_product__id_count`
        FROM `products`
            LEFT JOIN `list_product`
                ON `list_product`.`id` = `products`.`list_product_id`
@@ -88,8 +60,6 @@ BEGIN
 
     WHERE `products`.`is_active` = 1
     AND `list_product`.`is_active` = 1',
-                             IF(_lastId IS NULL, '',
-                                CONCAT(' AND `list_product`.`id` < ', _lastId)),
                              IF(__search_phrase = '', '',
                                 CONCAT(' AND `list_product`.`name` LIKE "%', __search_phrase, '%"')),
                              IF(IFNULL(JSON_LENGTH(__dict_collection__code), 0) = 0, '',
@@ -108,8 +78,7 @@ BEGIN
                                 CONCAT(' AND `dict_type_of_product`.`code` IN (',
                                        TRIM(TRAILING ']' FROM TRIM(LEADING '[' FROM __dict_type_of_product__code)),
                                        ')')),
-                             'ORDER BY `list_product`.`id` DESC '
-                                 'LIMIT ', _limit
+                             'GROUP BY `list_product`.`id`'
         );
 
     PREPARE `stmt` FROM @__products;
