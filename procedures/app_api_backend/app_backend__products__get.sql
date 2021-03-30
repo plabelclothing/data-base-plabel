@@ -5,8 +5,7 @@ DELIMITER $$
 /*!50003
 CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_backend__products__get`(IN _params JSON,
-                                                                            IN _dict_country__iso CHAR(3),
-                                                                            IN _list_product__uuid JSON)
+                                                                            IN _dict_country__iso CHAR(3))
 BEGIN
 
     DECLARE __dict_collection__code JSON;
@@ -18,7 +17,6 @@ BEGIN
     DECLARE __dict_currency__symbol CHAR(3);
     DECLARE __currency_exchange_rate__value DECIMAL(5, 3);
     DECLARE __search_phrase LONGTEXT;
-    DECLARE __list_product__uuid LONGTEXT;
 
     SELECT `dict_currency`.`iso4217`,
            `dict_currency`.`symbol`,
@@ -31,7 +29,6 @@ BEGIN
                        ON `currency_exchange_rate`.`dict_currency_id` = `dict_currency`.`id`
     WHERE `dict_country`.`iso` = _dict_country__iso;
 
-    SET __list_product__uuid = TRIM(TRAILING ']' FROM TRIM(LEADING '[' FROM JSON_EXTRACT(_list_product__uuid, '$')));
     SET __dict_collection__code = IF(JSON_CONTAINS_PATH(`_params`, 'one', '$.dictCollectionCode') = 1,
                                      JSON_EXTRACT(`_params`, '$.dictCollectionCode'), '[]');
     SET __search_phrase = IF(JSON_CONTAINS_PATH(`_params`, 'one', '$.searchPhrase') = 1,
@@ -89,7 +86,6 @@ BEGIN
 
     WHERE `products`.`is_active` = 1
     AND `list_product`.`is_active` = 1',
-                             CONCAT(' AND `list_product`.`uuid` IN (', __list_product__uuid, ')'),
                              IF(__search_phrase = '', '',
                                 CONCAT(' AND `list_product`.`name` LIKE "%', __search_phrase, '%"')),
                              IF(IFNULL(JSON_LENGTH(__dict_collection__code), 0) = 0, '',
@@ -108,7 +104,7 @@ BEGIN
                                 CONCAT(' AND `dict_type_of_product`.`code` IN (',
                                        TRIM(TRAILING ']' FROM TRIM(LEADING '[' FROM __dict_type_of_product__code)),
                                        ')')),
-                             'ORDER BY `list_product`.`id` DESC '
+                             'ORDER BY `list_product`.`created` DESC '
         );
 
     PREPARE `stmt` FROM @__products;
