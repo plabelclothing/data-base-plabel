@@ -1,3 +1,5 @@
+# 005_migration
+# region procedures
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__products__get_uuid` */;
 
 DELIMITER $$
@@ -89,3 +91,14 @@ BEGIN
 
 END */$$
 DELIMITER;
+
+# region procedures
+
+# region update info about migration
+INSERT
+INTO `migrations`
+    (`name`, `uuid`, `created`, `modified`)
+VALUES ('005_migration',
+        `uuid_v4`(),
+        UNIX_TIMESTAMP(),
+        UNIX_TIMESTAMP());

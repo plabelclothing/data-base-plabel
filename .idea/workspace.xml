@@ -26,10 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get_uuid.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/005_migration.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get_uuid.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__products__get_uuid.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,17 +70,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
-      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
-      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
-      <recent name="$PROJECT_DIR$/procedures/common" />
-      <recent name="$PROJECT_DIR$/procedures" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/migartions" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
+      <recent name="$PROJECT_DIR$/procedures/common" />
+      <recent name="$PROJECT_DIR$/procedures" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -132,7 +131,8 @@
       <workItem from="1616250269571" duration="2916000" />
       <workItem from="1616772824477" duration="2772000" />
       <workItem from="1616847425347" duration="2267000" />
-      <workItem from="1617011431339" duration="8641000" />
+      <workItem from="1617011431339" duration="9859000" />
+      <workItem from="1617103444416" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -267,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617018449934</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="bug fix">
+      <created>1617036609668</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617036609668</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -316,10 +323,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1617018449062">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1617036608797">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1617018449062" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1617036608797" />
     <state x="92" y="92" width="1736" height="1016" key="DiffContextDialog" timestamp="1617032916797">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -328,10 +335,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="777" y="311" key="RollbackChangesDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1617032900541" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617018454017">
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617036630816">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1617018454017" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1617036630816" />
     <state x="656" y="332" width="607" height="536" key="find.popup" timestamp="1614785961516">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
