@@ -1,4 +1,4 @@
-# 005_migration
+# 006_migration
 DROP PROCEDURE IF EXISTS `app_backend__products__get_uuid`;
 DROP PROCEDURE IF EXISTS `app_backend__products__count_get`;
 
