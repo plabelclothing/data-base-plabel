@@ -9,6 +9,7 @@ CREATE
 BEGIN
 
     GRANT EXECUTE ON FUNCTION `uuid_v4` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__dict_country__get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_email__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_email__update` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_ipn__insert` TO 'internal'@'localhost';
@@ -27,6 +28,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user__update` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_cart_items__get_by_uuid` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_details__get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__update` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__update` TO 'internal'@'localhost';
@@ -34,6 +36,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user_portal_link__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_portal_link__update` TO 'internal'@'localhost';
 
+    GRANT EXECUTE ON PROCEDURE `app_backend__dict_country__get` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_email__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_email__update` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__notification_ipn__insert` TO 'app_api_backend'@'localhost';
@@ -52,6 +55,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user__update` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_cart__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_cart_items__get_by_uuid` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_details__get` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__update` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__update` TO 'app_api_backend'@'localhost';

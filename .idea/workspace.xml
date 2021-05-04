@@ -26,10 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/007_migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__cart_get_by_uuid.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/008_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__dict_country__get.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_details__get.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/006_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/006_migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_details__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_details__update.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,9 +39,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="data-base-plabel" />
@@ -85,7 +84,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -137,6 +136,9 @@
       <workItem from="1617103444416" duration="3389000" />
       <workItem from="1617606567995" duration="7132000" />
       <workItem from="1617982638984" duration="1196000" />
+      <workItem from="1618038123088" duration="625000" />
+      <workItem from="1618206583938" duration="1202000" />
+      <workItem from="1620120911052" duration="4173000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -292,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617107235186</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added procedure for cart">
+      <created>1618038259827</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1618038259827</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -300,7 +309,7 @@
     </servers>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -319,12 +328,12 @@
                   </entry>
                 </map>
               </option>
-              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inited db structure" />
@@ -338,13 +347,14 @@
     <MESSAGE value="added new tables" />
     <MESSAGE value="added new procedures" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="added procedure for cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="added procedure for cart" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1617107234380">
+    <state x="429" y="33" key="CommitChangelistDialog2" timestamp="1618038259053">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1617107234380" />
+    <state x="429" y="33" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1618038259053" />
     <state x="92" y="92" width="1736" height="1016" key="DiffContextDialog" timestamp="1617618852489">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -353,18 +363,14 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="777" y="311" key="RollbackChangesDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1617619859147" />
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617107238575">
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2" timestamp="1618038263400">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1617107238575" />
+    <state x="427" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1200@0.0.1920.1200" timestamp="1618038263400" />
     <state x="656" y="332" width="607" height="536" key="find.popup" timestamp="1614785961516">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="656" y="332" width="607" height="536" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1614785961516" />
-    <state x="741" y="314" key="git4idea.branch.GitSmartOperationDialog" timestamp="1609251338844">
-      <screen x="0" y="0" width="1920" height="1200" />
-    </state>
-    <state x="741" y="314" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1609251338844" />
     <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1617617874987">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
