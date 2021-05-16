@@ -66,7 +66,7 @@ CREATE TABLE `user_order`
     `uuid`                   CHAR(36)                                                   NOT NULL,
     `user_cart_id`           INT(10) UNSIGNED                                           NOT NULL,
     `user_id`                INT(10) UNSIGNED,
-    `status`                 ENUM ('new','completed','canceled')                        NOT NULL,
+    `status`                 ENUM ('new','approved','canceled')                         NOT NULL,
     `order_status`           ENUM ('new','shipped','pending','delivered') DEFAULT 'new' NOT NULL,
     `additional_information` JSON,
     `address`                JSON,
