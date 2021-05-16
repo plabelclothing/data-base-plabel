@@ -1,3 +1,7 @@
+# 009_migration
+
+# region procedures
+
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_order__update` */;
 
 DELIMITER $$
@@ -21,3 +25,12 @@ BEGIN
 
 END */$$
 DELIMITER ;
+
+# region update info about migration
+INSERT
+INTO `migrations`
+    (`name`, `uuid`, `created`, `modified`)
+VALUES ('009_migration',
+        `uuid_v4`(),
+        UNIX_TIMESTAMP(),
+        UNIX_TIMESTAMP());
