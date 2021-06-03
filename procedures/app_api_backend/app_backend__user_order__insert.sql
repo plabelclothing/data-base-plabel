@@ -42,9 +42,11 @@ BEGIN
 
     INSERT
     INTO `user_order`
-    (`uuid`, `user_cart_id`, `user_id`, `status`, `additional_information`, `address`, `tracking_number`, `created`,
+    (`uuid`, `external_id`, `user_cart_id`, `user_id`, `status`, `additional_information`, `address`, `tracking_number`,
+     `created`,
      `modified`)
     VALUES (user_order__uuid,
+            `random_string`(20, '{"underscore": false,"upper":false}'),
             _user_cart__id,
             _user__id,
             'new',

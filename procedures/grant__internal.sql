@@ -9,6 +9,7 @@ CREATE
 BEGIN
     GRANT Alter, Create, Delete, Execute, Insert, Select, Show Databases, Update ON *.* TO `internal`@`localhost`;
 
+    GRANT EXECUTE ON FUNCTION `random_string` TO 'internal'@'localhost';
     GRANT EXECUTE ON FUNCTION `uuid_v4` TO 'internal'@'localhost';
 END */$$
 

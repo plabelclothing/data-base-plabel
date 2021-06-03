@@ -8,15 +8,15 @@ CREATE
                                                                                         IN _dict_country__iso CHAR(3))
 BEGIN
 
-    DECLARE __dict_currency__symbol CHAR(3);
+    DECLARE __dict_currency__iso4217 CHAR(3);
     DECLARE __currency_exchange_rate__value DECIMAL(5, 3);
     DECLARE __product__uuid LONGTEXT;
 
     SET __product__uuid = TRIM(TRAILING ']' FROM TRIM(LEADING '[' FROM JSON_EXTRACT(_product__uuid, '$')));
 
-    SELECT `dict_currency`.`symbol`,
+    SELECT `dict_currency`.`iso4217`,
            `currency_exchange_rate`.`value`
-    INTO __dict_currency__symbol, __currency_exchange_rate__value
+    INTO __dict_currency__iso4217, __currency_exchange_rate__value
     FROM `dict_currency`
              LEFT JOIN `dict_country`
                        ON `dict_country`.`dict_currency_id` = `dict_currency`.`id`
@@ -34,7 +34,7 @@ BEGIN
            `list_product`.`images`                            AS `list_product__images`,
            `list_product`.`uuid`                              AS `list_product__uuid`,
 
-           "', __dict_currency__symbol, '"                    AS `dict_currency_symbol`,
+           "', __dict_currency__iso4217, '"                   AS `dict_currency__iso4217`,
 
            `dict_color`.`name`                                AS `dict_color__name`,
 
