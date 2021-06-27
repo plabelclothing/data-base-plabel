@@ -64,6 +64,7 @@ CREATE TABLE `user_order`
 (
     `id`                     INT(10) UNSIGNED                                           NOT NULL AUTO_INCREMENT,
     `uuid`                   CHAR(36)                                                   NOT NULL,
+    `external_id`            VARCHAR(20)                                                NOT NULL,
     `user_cart_id`           INT(10) UNSIGNED                                           NOT NULL,
     `user_id`                INT(10) UNSIGNED,
     `status`                 ENUM ('new','approved','canceled')                         NOT NULL,

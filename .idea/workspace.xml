@@ -26,10 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/009_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/011_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__currency_exchange_rate__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__dict_currency__get.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get_products.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_support__insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/003_migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__cart_get_by_uuid.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__product__cart_get_by_uuid.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart_items__get_by_uuid.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +57,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get.sql" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/procedures/grant__app_api_backend.sql" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1jNLRfVcSXmbJDSvaFJOZVg4qWp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -63,18 +82,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/migartions/app_api_backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
+      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
+      <recent name="C:\Projects\MY\data-base-plabel\functions" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures" />
       <recent name="$PROJECT_DIR$/procedures/common" />
-      <recent name="$PROJECT_DIR$/procedures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/procedures/common" />
@@ -138,6 +157,20 @@
       <workItem from="1618206583938" duration="1202000" />
       <workItem from="1620120911052" duration="4873000" />
       <workItem from="1621171764673" duration="1493000" />
+      <workItem from="1622125714958" duration="594000" />
+      <workItem from="1622273431035" duration="8000" />
+      <workItem from="1622273463467" duration="5210000" />
+      <workItem from="1622711619976" duration="3656000" />
+      <workItem from="1623240621775" duration="5248000" />
+      <workItem from="1623303792806" duration="610000" />
+      <workItem from="1623486633005" duration="10000" />
+      <workItem from="1623486665222" duration="11765000" />
+      <workItem from="1624285226313" duration="2074000" />
+      <workItem from="1624340808424" duration="6000" />
+      <workItem from="1624340840881" duration="52000" />
+      <workItem from="1624696266936" duration="1676000" />
+      <workItem from="1624801714893" duration="602000" />
+      <workItem from="1624802867319" duration="2590000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -307,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620125610928</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="new procedures">
+      <created>1622731499265</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1622731499265</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -354,6 +394,7 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="added procedure for cart" />
     <MESSAGE value="added new procedures" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new procedures" />
+    <MESSAGE value="new procedures" />
+    <option name="LAST_COMMIT_MESSAGE" value="new procedures" />
   </component>
 </project>
