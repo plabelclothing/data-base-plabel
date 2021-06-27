@@ -16,6 +16,20 @@ BEGIN
     DECLARE `_payment_method_id` INT(10) UNSIGNED;
     DECLARE `_dict_currency_id` INT(10) UNSIGNED;
 
+    # Error handlers
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        BEGIN
+            ROLLBACK;
+            RESIGNAL;
+        END;
+    DECLARE EXIT HANDLER FOR SQLWARNING
+        BEGIN
+            ROLLBACK;
+            RESIGNAL;
+        END;
+
+    START TRANSACTION;
+
     SELECT `user_order`.`id`
     INTO `_user_order_id`
     FROM `user_order`
@@ -57,6 +71,7 @@ BEGIN
             transaction__status,
             UNIX_TIMESTAMP(),
             UNIX_TIMESTAMP());
+    COMMIT;
 
 END */$$
 DELIMITER ;

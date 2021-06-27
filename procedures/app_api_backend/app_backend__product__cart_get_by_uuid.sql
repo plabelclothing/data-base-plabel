@@ -37,6 +37,7 @@ BEGIN
            "', __dict_currency__iso4217, '"                   AS `dict_currency__iso4217`,
 
            `dict_color`.`name`                                AS `dict_color__name`,
+           `dict_color`.`code`                                AS `dict_color__code`,
 
            `dict_size`.`name`                                 AS `dict_size__name`
 
