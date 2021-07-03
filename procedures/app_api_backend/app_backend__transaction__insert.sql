@@ -4,17 +4,21 @@ DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction__insert`(IN transaction__uuid CHAR(36),
-                                                                                  IN user_order__uuid CHAR(36),
-                                                                                  IN payment_method__code VARCHAR(255),
-                                                                                  IN dict_currency__iso4217 CHAR(3),
-                                                                                  IN transaction__amount INT(10) UNSIGNED,
-                                                                                  IN transaction__status ENUM ('pending','settled','canceled','error', 'new'))
+    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction__insert`(IN _transaction__uuid CHAR(36),
+                                                                                  IN _user_order__uuid CHAR(36),
+                                                                                  IN _payment_method__code VARCHAR(255),
+                                                                                  IN _dict_currency__iso4217 CHAR(3),
+                                                                                  IN _transaction__amount INT(10) UNSIGNED,
+                                                                                  IN _transaction__status ENUM ('pending','settled','canceled','error', 'new'),
+                                                                                  IN _transaction_customer__locale CHAR(3),
+                                                                                  IN _dict_country__iso CHAR(3))
 BEGIN
 
-    DECLARE `_user_order_id` INT(10) UNSIGNED;
-    DECLARE `_payment_method_id` INT(10) UNSIGNED;
-    DECLARE `_dict_currency_id` INT(10) UNSIGNED;
+    DECLARE __user_order__id INT(10) UNSIGNED;
+    DECLARE __payment_method__id INT(10) UNSIGNED;
+    DECLARE __dict_currency__id INT(10) UNSIGNED;
+    DECLARE __dict_country__id INT(10) UNSIGNED;
+    DECLARE __transaction__id INT(10) UNSIGNED;
 
     # Error handlers
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -31,44 +35,66 @@ BEGIN
     START TRANSACTION;
 
     SELECT `user_order`.`id`
-    INTO `_user_order_id`
+    INTO __user_order__id
     FROM `user_order`
-    WHERE `user_order`.`uuid` = user_order__uuid;
+    WHERE `user_order`.`uuid` = _user_order__uuid;
 
-    IF `_user_order_id` IS NULL
+    IF __user_order__id IS NULL
     THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No user order id', MYSQL_ERRNO = 1000;
     END IF;
 
     SELECT `payment_method`.`id`
-    INTO `_payment_method_id`
+    INTO __payment_method__id
     FROM `payment_method`
-    WHERE `payment_method`.`code` = payment_method__code;
+    WHERE `payment_method`.`code` = _payment_method__code;
 
-    IF `_payment_method_id` IS NULL
+    IF __payment_method__id IS NULL
     THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No payment method id', MYSQL_ERRNO = 1001;
     END IF;
 
     SELECT `dict_currency`.`id`
-    INTO `_dict_currency_id`
+    INTO __dict_currency__id
     FROM `dict_currency`
-    WHERE `dict_currency`.`iso4217` = dict_currency__iso4217;
+    WHERE `dict_currency`.`iso4217` = _dict_currency__iso4217;
 
-    IF `_dict_currency_id` IS NULL
+    IF __dict_currency__id IS NULL
     THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No dict currency id', MYSQL_ERRNO = 1002;
+    END IF;
+
+    SELECT `dict_country`.`id`
+    INTO __dict_country__id
+    FROM `dict_country`
+    WHERE `dict_country`.`iso` = _dict_country__iso;
+
+    IF __dict_country__id IS NULL
+    THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No dict country id', MYSQL_ERRNO = 1002;
     END IF;
 
     INSERT
     INTO `transaction`
     (`uuid`, `user_order_id`, `payment_method_id`, `dict_currency_id`, `amount`, `status`, `created`, `modified`)
-    VALUES (transaction__uuid,
-            _user_order_id,
-            _payment_method_id,
-            _dict_currency_id,
-            transaction__amount,
-            transaction__status,
+    VALUES (_transaction__uuid,
+            __user_order__id,
+            __payment_method__id,
+            __dict_currency__id,
+            _transaction__amount,
+            _transaction__status,
+            UNIX_TIMESTAMP(),
+            UNIX_TIMESTAMP());
+
+    SELECT LAST_INSERT_ID()
+    INTO __transaction__id;
+
+    INSERT
+    INTO `transaction_customer`
+        (`transaction_id`, `dict_country_id`, `locale`, `modified`, `created`)
+    VALUES (__transaction__id,
+            __dict_country__id,
+            _transaction_customer__locale,
             UNIX_TIMESTAMP(),
             UNIX_TIMESTAMP());
     COMMIT;
