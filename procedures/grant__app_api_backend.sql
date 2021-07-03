@@ -34,6 +34,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__update` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__get` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_order__get_email_send` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__get_products` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__update` TO 'internal'@'localhost';
@@ -66,6 +67,7 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__get` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_details__update` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__get` TO 'app_api_backend'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_backend__user_order__get_email_send` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__get_products` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__insert` TO 'app_api_backend'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_backend__user_order__update` TO 'app_api_backend'@'localhost';

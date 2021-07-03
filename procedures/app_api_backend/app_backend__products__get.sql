@@ -104,7 +104,7 @@ BEGIN
                                 CONCAT(' AND `dict_type_of_product`.`code` IN (',
                                        TRIM(TRAILING ']' FROM TRIM(LEADING '[' FROM __dict_type_of_product__code)),
                                        ')')),
-                             'ORDER BY `list_product`.`created` DESC '
+                             ' ORDER BY `list_product`.`created` DESC '
         );
 
     PREPARE `stmt` FROM @__products;
