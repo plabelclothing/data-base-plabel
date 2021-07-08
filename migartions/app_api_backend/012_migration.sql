@@ -1,4 +1,4 @@
-# 011_migration
+# 012_migration
 
 CREATE TABLE `transaction_customer`
 (
@@ -303,7 +303,7 @@ DELIMITER ;
 INSERT
 INTO `migrations`
     (`name`, `uuid`, `created`, `modified`)
-VALUES ('011_migration',
+VALUES ('012_migration',
         `uuid_v4`(),
         UNIX_TIMESTAMP(),
         UNIX_TIMESTAMP());
