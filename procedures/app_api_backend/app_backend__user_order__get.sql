@@ -19,6 +19,7 @@ BEGIN
              INNER JOIN `user`
                         ON `user`.`id` = `user_order`.`user_id`
     WHERE `user`.`uuid` = _user__uuid
+      AND `user_order`.`status` <> "canceled"
     ORDER BY `user_order`.`created` DESC
     LIMIT 1;
 
@@ -28,6 +29,7 @@ BEGIN
              INNER JOIN `user`
                         ON `user`.`id` = `user_order`.`user_id`
     WHERE `user`.`uuid` = _user__uuid
+      AND `user_order`.`status` <> "canceled"
     ORDER BY `user_order`.`created`
     LIMIT 1;
 

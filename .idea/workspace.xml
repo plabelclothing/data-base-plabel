@@ -26,11 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/013_migration.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/012_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/012_migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/013_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/013_migration.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get_products.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get_products.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +168,8 @@
       <workItem from="1625234257606" duration="1229000" />
       <workItem from="1625299737907" duration="6000" />
       <workItem from="1625299767694" duration="3002000" />
-      <workItem from="1625754265673" duration="639000" />
+      <workItem from="1625754265673" duration="769000" />
+      <workItem from="1626187326472" duration="1431000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -361,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625310276197</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="bug fix">
+      <created>1625755032432</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1625755032432</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -405,10 +411,10 @@
     <MESSAGE value="added adress to grands" />
     <MESSAGE value="added mysqld" />
     <MESSAGE value="added new tables" />
-    <MESSAGE value="bug fix" />
     <MESSAGE value="added procedure for cart" />
     <MESSAGE value="new procedures" />
     <MESSAGE value="added new procedures" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new procedures" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
 </project>
