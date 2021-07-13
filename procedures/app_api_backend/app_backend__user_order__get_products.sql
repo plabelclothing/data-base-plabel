@@ -59,6 +59,7 @@ BEGIN
                         ON `dict_size`.`id` = `products`.`dict_size_id`
     WHERE `products`.`is_active` = 1
       AND `user_order`.`external_id` = _user_order__external_id
+      AND `user_order`.`status` <> 'canceled'
     GROUP BY `products`.`uuid`, `list_product`.`name`, `list_product`.`uuid`, `list_product`.`images`,
              `dict_color`.`code`, `dict_color`.`hex`, `dict_product`.`code`,
              `dict_size`.`name`, `dict_size`.`code`;
