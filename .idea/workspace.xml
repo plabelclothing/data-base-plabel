@@ -25,10 +25,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="">
+    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="added new">
+      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend_backoffice/001_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__check_exist.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__get.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__signin.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__signup.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_order__get.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_order__get_by_uuid.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend_backoffice.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migartions/app_api_backend/013_migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migartions/app_api_backend/013_migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +64,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/procedures/grant__app_api_backend.sql" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__get.sql" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/procedures/grant__app_api_backend.sql" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1jNLRfVcSXmbJDSvaFJOZVg4qWp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -74,20 +80,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/migartions/app_api_backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend_backoffice" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend_backoffice" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
       <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\functions" />
-      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
-      <recent name="$PROJECT_DIR$/procedures/common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend_backoffice" />
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/migartions" />
       <recent name="$PROJECT_DIR$" />
@@ -169,7 +176,21 @@
       <workItem from="1625299737907" duration="6000" />
       <workItem from="1625299767694" duration="3002000" />
       <workItem from="1625754265673" duration="769000" />
-      <workItem from="1626187326472" duration="1431000" />
+      <workItem from="1626187326472" duration="1450000" />
+      <workItem from="1629538659581" duration="4719000" />
+      <workItem from="1629697570968" duration="6000" />
+      <workItem from="1629697612446" duration="69000" />
+      <workItem from="1631284223446" duration="594000" />
+      <workItem from="1631354677771" duration="914000" />
+      <workItem from="1631511801143" duration="600000" />
+      <workItem from="1631514456351" duration="40000" />
+      <workItem from="1632567142674" duration="3261000" />
+      <workItem from="1632721780741" duration="1089000" />
+      <workItem from="1632746979236" duration="81000" />
+      <workItem from="1632753339268" duration="2144000" />
+      <workItem from="1632926988917" duration="1804000" />
+      <workItem from="1633004287099" duration="2984000" />
+      <workItem from="1633512813626" duration="370000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -367,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625755032432</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="bug fix with get history">
+      <created>1626190026504</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1626190026504</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -415,6 +443,7 @@
     <MESSAGE value="new procedures" />
     <MESSAGE value="added new procedures" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="bug fix with get history" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix with get history" />
   </component>
 </project>
