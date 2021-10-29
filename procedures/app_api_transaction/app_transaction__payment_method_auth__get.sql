@@ -1,10 +1,10 @@
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__payment_method_auth__get` */;
+/*!50003 DROP PROCEDURE IF EXISTS `app_transaction__payment_method_auth__get` */;
 
 DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__payment_method_auth__get`(
+    DEFINER = `internal`@`localhost` PROCEDURE `app_transaction__payment_method_auth__get`(
     IN _payment_method_code VARCHAR(255))
 BEGIN
 

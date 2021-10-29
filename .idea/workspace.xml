@@ -25,16 +25,23 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="added new">
-      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend_backoffice/001_migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__check_exist.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__get.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__signin.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_backoffice__signup.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_order__get.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_backend_backoffice/app_backend_backoffice__user_order__get_by_uuid.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend_backoffice.sql" afterDir="false" />
+    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="init db for backoffice app">
+      <change afterPath="$PROJECT_DIR$/migartions/app_api_transaction/001_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__notification_email__insert.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__notification_email__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__user_order__get_email_send.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__user_order__update.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/grant__app_api_transaction.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_ipn__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__notification_ipn__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__payment_method_auth__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__payment_method_auth__get.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__get_by_external_id.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__get_by_external_id.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction_log__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction_log__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,20 +87,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend_backoffice" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend_backoffice" />
-      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
-      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
-      <recent name="C:\Projects\MY\data-base-plabel\functions" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_transaction" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures" />
+      <recent name="C:\Projects\MY\data-base-plabel\migartions" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend_backoffice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_transaction" />
       <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend_backoffice" />
       <recent name="$PROJECT_DIR$/procedures/common" />
       <recent name="$PROJECT_DIR$/migartions" />
@@ -190,7 +198,15 @@
       <workItem from="1632753339268" duration="2144000" />
       <workItem from="1632926988917" duration="1804000" />
       <workItem from="1633004287099" duration="2984000" />
-      <workItem from="1633512813626" duration="370000" />
+      <workItem from="1633512813626" duration="3837000" />
+      <workItem from="1633778677979" duration="3288000" />
+      <workItem from="1633787637056" duration="973000" />
+      <workItem from="1633931293218" duration="595000" />
+      <workItem from="1634372827744" duration="1991000" />
+      <workItem from="1634536256419" duration="600000" />
+      <workItem from="1634562637227" duration="1560000" />
+      <workItem from="1634622672500" duration="595000" />
+      <workItem from="1635339544818" duration="2250000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -395,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626190026504</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="init db for backoffice app">
+      <created>1633513258996</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1633513258996</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -444,6 +467,7 @@
     <MESSAGE value="added new procedures" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="bug fix with get history" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix with get history" />
+    <MESSAGE value="init db for backoffice app" />
+    <option name="LAST_COMMIT_MESSAGE" value="init db for backoffice app" />
   </component>
 </project>
