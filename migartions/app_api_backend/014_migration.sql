@@ -1,3 +1,39 @@
+# 014_migration
+
+ALTER TABLE `transaction`
+    ADD COLUMN `related_transaction_id` INT(10) UNSIGNED                      NULL AFTER `amount`,
+    ADD COLUMN `type`                   ENUM ('sale','refund') DEFAULT 'sale' NOT NULL AFTER `related_transaction_id`,
+    ADD FOREIGN KEY (`related_transaction_id`) REFERENCES `transaction` (`id`);
+
+ALTER TABLE `user_cart_items`
+    ADD COLUMN `type` ENUM ('sale','refund') DEFAULT 'sale' NOT NULL AFTER `dict_currency_id`;
+
+ALTER TABLE `user_cart_items`
+    ADD COLUMN `uuid` CHAR(36) AFTER `id`,
+    ADD UNIQUE INDEX (`uuid`);
+
+UPDATE `user_cart_items`
+SET `user_cart_items`.`uuid`     = `uuid_v4`(),
+    `user_cart_items`.`modified` = UNIX_TIMESTAMP();
+
+ALTER TABLE `user_cart_items`
+    CHANGE `uuid` `uuid` CHAR(36) NOT NULL;
+
+ALTER TABLE `user_order`
+    CHANGE `order_status` `order_status` ENUM ('new','shipped','pending','delivered','refunded') DEFAULT 'new' NOT NULL;
+
+ALTER TABLE `user_cart_items`
+    ADD COLUMN `related_user_cart_items_id` INT(10) UNSIGNED NULL AFTER `dict_currency_id`,
+    ADD KEY (`related_user_cart_items_id`),
+    ADD FOREIGN KEY (`related_user_cart_items_id`) REFERENCES `user_cart_items` (`id`);
+
+ALTER TABLE `user_cart_items`
+    DROP INDEX `related_user_cart_items_id`,
+    ADD UNIQUE INDEX `related_user_cart_items_id` (`related_user_cart_items_id`);
+
+ALTER TABLE `transaction`
+    ADD COLUMN `capture_id` VARCHAR(255) NULL AFTER `external_id`;
+
 /*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_cart__insert` */;
 
 DELIMITER $$
@@ -63,7 +99,7 @@ BEGIN
 
     INSERT
     INTO `user_cart`
-        (`uuid`, `user_id`, `created`, `modified`)
+    (`uuid`, `user_id`, `created`, `modified`)
     VALUES (_user_cart__uuid, __user__id, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
 
     SELECT `user_cart`.`id`
@@ -130,3 +166,13 @@ BEGIN
 
 END */$$
 DELIMITER ;
+
+# region update info about migration
+INSERT
+INTO `migrations`
+    (`name`, `uuid`, `code`, `created`, `modified`)
+VALUES ('014_migration',
+        `uuid_v4`(),
+        'API_BACKEND',
+        UNIX_TIMESTAMP(),
+        UNIX_TIMESTAMP());

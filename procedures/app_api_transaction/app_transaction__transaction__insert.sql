@@ -1,17 +1,17 @@
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__transaction__insert` */;
+/*!50003 DROP PROCEDURE IF EXISTS `app_transaction__transaction__insert` */;
 
 DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__transaction__insert`(IN _transaction__uuid CHAR(36),
-                                                                                  IN _user_order__uuid CHAR(36),
-                                                                                  IN _payment_method__code VARCHAR(255),
-                                                                                  IN _dict_currency__iso4217 CHAR(3),
-                                                                                  IN _transaction__amount INT(10) UNSIGNED,
-                                                                                  IN _transaction__status ENUM ('pending','settled','canceled','error', 'new'),
-                                                                                  IN _transaction_customer__locale CHAR(3),
-                                                                                  IN _dict_country__iso CHAR(3))
+    DEFINER = `internal`@`localhost` PROCEDURE `app_transaction__transaction__insert`(IN _transaction__uuid CHAR(36),
+                                                                                      IN _user_order__uuid CHAR(36),
+                                                                                      IN _payment_method__code VARCHAR(255),
+                                                                                      IN _dict_currency__iso4217 CHAR(3),
+                                                                                      IN _transaction__amount INT(10) UNSIGNED,
+                                                                                      IN _transaction__status ENUM ('pending','settled','canceled','error', 'new'),
+                                                                                      IN _transaction_customer__locale CHAR(3),
+                                                                                      IN _dict_country__iso CHAR(3))
 BEGIN
 
     DECLARE __user_order__id INT(10) UNSIGNED;
