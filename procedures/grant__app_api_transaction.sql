@@ -16,6 +16,10 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_transaction__payment_method_auth__get` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__get_by_external_id` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__insert` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__check` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__get_by_status` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__get_data` TO 'internal'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__update` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction_log__insert` TO 'internal'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__user_order__get_email_send` TO 'internal'@'localhost';
@@ -27,6 +31,10 @@ BEGIN
     GRANT EXECUTE ON PROCEDURE `app_transaction__payment_method_auth__get` TO 'app_api_transaction'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__get_by_external_id` TO 'app_api_transaction'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__insert` TO 'app_api_transaction'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__check` TO 'app_api_transaction'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__get_by_status` TO 'app_api_transaction'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__get_data` TO 'app_api_transaction'@'localhost';
+    GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__refund__insert` TO 'app_api_transaction'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction__update` TO 'app_api_transaction'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__transaction_log__insert` TO 'app_api_transaction'@'localhost';
     GRANT EXECUTE ON PROCEDURE `app_transaction__user_order__get_email_send` TO 'app_api_transaction'@'localhost';

@@ -7,7 +7,7 @@ CREATE
     DEFINER = `internal`@`localhost` PROCEDURE `app_transaction__user_order__update`(IN _transaction__uuid CHAR(36),
                                                                                      IN _user_order__address JSON,
                                                                                      IN _status ENUM ('new','approved','canceled'),
-                                                                                     IN _order_status ENUM ('new','pending','shipped', 'delivered'))
+                                                                                     IN _order_status ENUM ('new','pending','shipped', 'delivered', 'refunded'))
 BEGIN
 
     UPDATE `user_order`

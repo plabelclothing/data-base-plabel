@@ -25,23 +25,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="init db for backoffice app">
-      <change afterPath="$PROJECT_DIR$/migartions/app_api_transaction/001_migration.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__notification_email__insert.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__notification_email__update.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__update.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__user_order__get_email_send.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__user_order__update.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/procedures/grant__app_api_transaction.sql" afterDir="false" />
+    <list default="true" id="6f063e6e-3362-4bd8-a25f-ead89cfe68bd" name="Default Changelist" comment="added procedures for api transaction">
+      <change afterPath="$PROJECT_DIR$/migartions/app_api_backend/014_migration.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__refund__check.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__refund__get_by_status.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__refund__get_data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__refund__insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__notification_ipn__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__notification_ipn__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__payment_method_auth__get.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__payment_method_auth__get.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__get_by_external_id.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__get_by_external_id.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction__update.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__transaction_log__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction_log__insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_order__update.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_backend.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_backend/app_backend__user_cart__insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__transaction__update.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__user_order__update.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/app_api_transaction/app_transaction__user_order__update.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/grant__app_api_transaction.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/grant__app_api_transaction.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,18 +81,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures/app_api_transaction" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_transaction" />
+      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend_backoffice" />
+      <recent name="C:\Projects\MY\data-base-plabel\migartions\app_api_backend" />
+      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend" />
       <recent name="C:\Projects\MY\data-base-plabel\procedures" />
-      <recent name="C:\Projects\MY\data-base-plabel\migartions" />
-      <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_backend_backoffice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\MY\data-base-plabel\procedures\app_api_transaction" />
@@ -207,6 +201,19 @@
       <workItem from="1634562637227" duration="1560000" />
       <workItem from="1634622672500" duration="595000" />
       <workItem from="1635339544818" duration="2250000" />
+      <workItem from="1635498513147" duration="1720000" />
+      <workItem from="1638884438430" duration="2919000" />
+      <workItem from="1639469846698" duration="6500000" />
+      <workItem from="1639565703859" duration="1193000" />
+      <workItem from="1639998766276" duration="1703000" />
+      <workItem from="1640002023611" duration="2287000" />
+      <workItem from="1640072183126" duration="7374000" />
+      <workItem from="1640852143050" duration="10104000" />
+      <workItem from="1641803800837" duration="3557000" />
+      <workItem from="1641822736591" duration="2312000" />
+      <workItem from="1641883542236" duration="599000" />
+      <workItem from="1641895306066" duration="3937000" />
+      <workItem from="1641969991402" duration="4738000" />
     </task>
     <task id="LOCAL-00001" summary="Inited db structure">
       <created>1603641607291</created>
@@ -418,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633513258996</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="added procedures for api transaction">
+      <created>1635498547370</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1635498547370</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="plabelclothing" />
@@ -468,6 +482,7 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="bug fix with get history" />
     <MESSAGE value="init db for backoffice app" />
-    <option name="LAST_COMMIT_MESSAGE" value="init db for backoffice app" />
+    <MESSAGE value="added procedures for api transaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="added procedures for api transaction" />
   </component>
 </project>
