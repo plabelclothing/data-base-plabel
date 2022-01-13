@@ -1,13 +1,13 @@
-/*!50003 DROP PROCEDURE IF EXISTS `app_backend__user_order__update` */;
+/*!50003 DROP PROCEDURE IF EXISTS `app_transaction__user_order__update` */;
 
 DELIMITER $$
 
 /*!50003
 CREATE
-    DEFINER = `internal`@`localhost` PROCEDURE `app_backend__user_order__update`(IN _transaction__uuid CHAR(36),
-                                                                                 IN _user_order__address JSON,
-                                                                                 IN _status ENUM ('new','approved','canceled'),
-                                                                                 IN _order_status ENUM ('new','pending','shipped', 'delivered'))
+    DEFINER = `internal`@`localhost` PROCEDURE `app_transaction__user_order__update`(IN _transaction__uuid CHAR(36),
+                                                                                     IN _user_order__address JSON,
+                                                                                     IN _status ENUM ('new','approved','canceled'),
+                                                                                     IN _order_status ENUM ('new','pending','shipped', 'delivered', 'refunded'))
 BEGIN
 
     UPDATE `user_order`
